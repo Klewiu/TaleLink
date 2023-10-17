@@ -43,7 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #Installed aditionaly by pip
     'rest_framework',
+    'corsheaders',
+
+    #Applicatons
     'story'
 ]
 
@@ -55,6 +60,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+     # installed aditionaly      
+     'corsheaders.middleware.CorsMiddleware',
+     'django.middleware.common.CommonMiddleware',
 ]
 
 REST_FRAMEWORK = {
@@ -82,6 +91,11 @@ TEMPLATES = [
         },
     },
 ]
+
+CORS_ALLOWED_ORIGINS = (
+    'http://localhost:4200',
+)
+
 
 WSGI_APPLICATION = 'talelink.wsgi.application'
 
