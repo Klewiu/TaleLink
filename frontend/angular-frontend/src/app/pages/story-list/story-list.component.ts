@@ -16,6 +16,8 @@ export class StoryListComponent implements OnInit {
   ngOnInit() {
     this.apiService.getStories().subscribe((stories: Story[]) => {
       this.stories = stories;
+      console.log(typeof(stories['0'].user));
+      
     });
   }
 }

@@ -6,5 +6,5 @@ export interface Story {
     text: string;
     category: string; 
     updated: string;
-    user: number;
+    user: string;
   }
