@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Delete this tale?</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="cancelDelete()"></button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to delete this tale?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+  </div>
+  

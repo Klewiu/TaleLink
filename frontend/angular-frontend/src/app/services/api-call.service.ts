@@ -19,4 +19,8 @@ export class ApiCallService {
   addStory(newStory: Story): Observable<Story> {
     return this.http.post<Story>(`${this.apiUrl}story/`, newStory);
   }
+
+  deleteStory(id: number): Observable<Story> {
+    return this.http.delete<Story>(`${this.apiUrl}story/${id}`);
+  }
 }
