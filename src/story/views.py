@@ -11,9 +11,9 @@ from rest_framework.permissions import IsAdminUser
 class StoryViewSet(viewsets.ModelViewSet):
     queryset = Story.objects.all()
     serializer_class = StorySerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 class CurrentUserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = CurrentUserSerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = [AllowAny]

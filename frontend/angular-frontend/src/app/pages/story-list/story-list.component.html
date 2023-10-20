@@ -1,12 +1,24 @@
-<h1>Hello from Story-Link</h1>
-<div *ngFor="let story of stories">
-    <div>ID: {{ story.id }}</div>
-    <div>TITLE: {{ story.title }}</div>
-    <div>TIMESTAMP: {{ story.timestamp }}</div>
-    <div>EDIT: {{ story.isEdit }}</div>
-    <div>TEXT: {{ story.text }}</div>
-    <div>CATEGORY: {{ story.category }}</div>
-    <div>UPDATED: {{ story.updated }}</div>
-    <div>USER ID: {{ story.user }}</div>
+<h1 class="text-success">TaleLink Stories</h1>
+
+<button class="btn btn-info mt-2" routerLink="new-tale">Start New Tale</button>
+<div class="row mt-5">
+  <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let story of stories | slice:(page-1)*pageSize:page*pageSize">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ story.title }}</h5>
+        <p class="card-text">ID: {{ story.id }}</p>
+        <p class="card-text">Created: {{ story.timestamp | date :'short'}}</p>
+        <p class="card-text">Edit: {{ story.isEdit }}</p>
+        <p class="card-text">Text: {{ story.text }}</p>
+        <p class="card-text">Category: {{ story.category }}</p>
+        <p class="card-text">Updated: {{ story.updated | date :'short'}}</p>
+        <p class="card-text">Created by: {{ story.user }}</p>
+      </div>
+    </div>
   </div>
+</div>
+<ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="stories.length"></ngb-pagination>
+
+
+
   
