@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NewStoryComponent } from './pages/new-story/new-story.component'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { DeleteModalComponent } from './utils/delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StoryListComponent,
-    NewStoryComponent
+    NewStoryComponent,
+    DeleteModalComponent
   ],
   imports: [
     BrowserModule,

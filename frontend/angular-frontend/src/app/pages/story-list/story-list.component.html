@@ -13,11 +13,14 @@
         <p class="card-text">Category: {{ story.category }}</p>
         <p class="card-text">Updated: {{ story.updated | date :'short'}}</p>
         <p class="card-text">Created by: {{ story.user }}</p>
+        <button class="btn btn-danger" (click)="deleteStory(story.id)">Delete Story</button>
       </div>
     </div>
   </div>
 </div>
 <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="stories.length"></ngb-pagination>
+
+
 
 
 
