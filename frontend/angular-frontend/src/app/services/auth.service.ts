@@ -23,8 +23,10 @@ export class AuthService {
     return this.http.post<any>(this.api_url + `accounts/api/auth/`,
     {username, password}, httpOptions).pipe(
       map(user=>{
-        if (user & user.token){
+        if (user && user.token){
           localStorage.setItem("currentUser", JSON.stringify(user));
+          console.log('Pisze z locacl Storage');
+          
         }
         return user;
       })
@@ -33,6 +35,11 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('currentUser');
+  }
+
+  isAuthenticated(): boolean {
+    const user = localStorage.getItem('currentUser');
+    return !!user; // Returns true if user is authenticated, false otherwise
   }
 
 }

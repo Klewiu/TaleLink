@@ -4,6 +4,8 @@ import { Story } from 'src/app/models/story';
 import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteModalComponent } from 'src/app/utils/delete-modal/delete-modal.component';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-story-list',
@@ -15,14 +17,24 @@ export class StoryListComponent implements OnInit {
   stories: Story[] = [];
   page = 1;
   pageSize = 6;
+  user_username!: string; 
 
   constructor(
     private apiService: ApiCallService, 
     private config: NgbPaginationConfig, 
-    private modalService: NgbModal) {}
+    private modalService: NgbModal,
+    private authService: AuthService,
+    private router: Router
+    ) {}
 
   ngOnInit() {
     this.loadStories()
+
+    const userData = localStorage.getItem('currentUser');
+    if (userData) {
+      const user = JSON.parse(userData);
+      this.user_username = user.username;
+    }
   }
 
   loadStories() {    this.apiService.getStories().subscribe((stories: Story[]) => {
@@ -30,6 +42,16 @@ export class StoryListComponent implements OnInit {
     // console.log(typeof(stories['0'].user));
     
   });}
+
+  redirectToLoginPage(){
+    this.router.navigate(['login/'])
+  }
+
+  logout(){
+    this.authService.logout()
+    this.user_username = '';
+  }
+
 
   deleteStory(storyId: number) {
     const modalRef = this.modalService.open(DeleteModalComponent);

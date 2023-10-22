@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,9 @@ import { first } from 'rxjs/operators';
 export class LoginComponent {
 
   loginForm!: FormGroup;
+  loggedIn:boolean=false
 
-  constructor( private authService: AuthService){}
+  constructor( private authService: AuthService, private router: Router){}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -29,7 +31,8 @@ export class LoginComponent {
     this.authService.login(this.f['username'].value, this.f['password'].value).pipe(first()).subscribe(
       data =>{
         console.log(data);
-        
+        this.router.navigate([''])
+        this.loggedIn=true
       }
     )
     
