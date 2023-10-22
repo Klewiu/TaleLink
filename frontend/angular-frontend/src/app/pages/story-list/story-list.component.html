@@ -1,6 +1,7 @@
 <h1 class="text-success">TaleLink Stories</h1>
 <button (click)="redirectToLoginPage()" class="btn btn-success">Login</button>
 <button (click)="logout()" class="btn btn-danger">Logout</button>
+<button *ngIf="user_username" class="btn btn-info mx-3" routerLink="/profile">Profile</button>
 <h2>{{user_username}}</h2>
 
 <button class="btn btn-info mt-2" routerLink="new-tale">Start New Tale</button>
