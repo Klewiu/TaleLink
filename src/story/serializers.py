@@ -1,11 +1,14 @@
 from rest_framework import serializers
 from .models import Story
-
-
+from django.contrib.auth import get_user_model
 
 class StorySerializer(serializers.ModelSerializer):
-    user = serializers.CharField(source="user.username", read_only=True)
+    user = serializers.SlugRelatedField(
+        queryset=get_user_model().objects.all(),
+        slug_field='username'
+    )
 
-    class Meta: 
+    class Meta:
         model = Story
-        fields = ["id","title","timestamp","isEdit","text","category","updated","user"]
+        fields = ["id", "title", "timestamp", "isEdit", "text", "category", "updated", "user"]
+
