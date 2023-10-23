@@ -43,10 +43,6 @@ export class StoryListComponent implements OnInit {
     
   });}
 
-  redirectToLoginPage(){
-    this.router.navigate(['login/'])
-  }
-
   logout(){
     this.authService.logout()
     this.user_username = '';
