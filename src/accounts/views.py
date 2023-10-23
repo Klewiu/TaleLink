@@ -10,17 +10,30 @@ from rest_framework.response import Response
 
 from rest_framework.authentication import TokenAuthentication
 
+
+# class ProfileView(APIView):
+#     authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+#     permission_classes = [IsAuthenticated]
+
+#     def get(self, request, format=None):
+#         content = {
+#             'user': str(request.user.email),  # `django.contrib.auth.User` instance.
+#             'auth': str(request.auth),  # None
+#         }
+#         return Response(content)
+
 class ProfileView(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
+        user = request.user
         content = {
-            'user': str(request.user.email),  # `django.contrib.auth.User` instance.
-            'auth': str(request.auth),  # None
+            'username': user.username,
+            'user_id': user.pk,
+            'email': user.email,
         }
-        return Response(content)
-    
+        return Response(content)    
 
 
 
@@ -39,3 +52,4 @@ class CustomAuthToken(ObtainAuthToken):
             'user_id': user.pk,
             'email': user.email
         })
+    

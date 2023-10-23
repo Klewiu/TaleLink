@@ -1,1 +1,28 @@
-<p>profile works!</p>
+<div class="container">
+    <h1>User Profile</h1>
+    <table class="table">
+      <tbody>
+        <ng-container *ngIf="user">
+          <tr>
+            <th scope="row">Username</th>
+            <td>{{ user.username }}</td>
+          </tr>
+          <tr>
+            <th scope="row">User ID</th>
+            <td>{{ user.user_id }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Email</th>
+            <td>{{ user.email }}</td>
+          </tr>
+        </ng-container>
+        <ng-container *ngIf="!user">
+          <tr>
+            <td colspan="2">Loading user profile...</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  

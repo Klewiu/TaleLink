@@ -42,4 +42,13 @@ export class AuthService {
     return !!user; // Returns true if user is authenticated, false otherwise
   }
 
+  getToken(): string | null {
+    const user = localStorage.getItem('currentUser');
+    if (user) {
+      const userData = JSON.parse(user);
+      return userData.token;
+    }
+    return null;
+  }
+
 }
