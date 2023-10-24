@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeleteModalComponent } from './utils/delete-modal/delete-modal.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     NewStoryComponent,
     DeleteModalComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

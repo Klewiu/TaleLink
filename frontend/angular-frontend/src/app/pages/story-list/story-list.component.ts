@@ -17,8 +17,10 @@ export class StoryListComponent implements OnInit {
   stories: Story[] = [];
   page = 1;
   pageSize = 6;
-  user_username!: string; 
-
+  user_login_text = {
+    user_name:'',
+    login_text:''
+  }
   constructor(
     private apiService: ApiCallService, 
     private config: NgbPaginationConfig, 
@@ -33,7 +35,8 @@ export class StoryListComponent implements OnInit {
     const userData = localStorage.getItem('currentUser');
     if (userData) {
       const user = JSON.parse(userData);
-      this.user_username = user.username;
+      this.user_login_text.user_name = user.username;
+      this.user_login_text.login_text = 'You are logged in as : '
     }
   }
 
@@ -45,7 +48,8 @@ export class StoryListComponent implements OnInit {
 
   logout(){
     this.authService.logout()
-    this.user_username = '';
+    this.user_login_text.user_name = '';
+      this.user_login_text.login_text = 'You are logged out. Please log in...'
   }
 
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 const httpOptions = {
@@ -49,6 +50,11 @@ export class AuthService {
       return userData.token;
     }
     return null;
+  }
+
+  registerUser(userData:any):Observable<any>{
+    const url = `${this.api_url}accounts/api/register/`; // Replace with your registration endpoint
+    return this.http.post(url, userData);
   }
 
 }
