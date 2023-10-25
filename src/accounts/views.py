@@ -3,6 +3,7 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
 
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
@@ -13,6 +14,8 @@ from django.contrib.auth.models import User
 from .serializers import UserRegistrationSerializer
 from rest_framework.permissions import AllowAny 
 from django.contrib.auth.hashers import make_password
+
+from rest_framework.decorators import api_view, permission_classes
 
 
 # class ProfileView(APIView):
@@ -66,3 +69,16 @@ class UserRegistrationView(CreateAPIView):
     def perform_create(self, serializer):
         password = make_password(serializer.validated_data['password'])
         serializer.save(password=password)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def check_username_availability(request, username):
+    exists = User.objects.filter(username=username).exists()
+    return Response({'exists': exists})
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def check_email_availability(request, email):
+    exists = User.objects.filter(email=email).exists()
+    return Response({'exists': exists})
