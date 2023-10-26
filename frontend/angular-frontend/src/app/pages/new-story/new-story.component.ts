@@ -4,6 +4,7 @@ import { Story } from 'src/app/models/story';
 import { ApiCallService } from 'src/app/services/api-call.service';
 import { UserCallService } from 'src/app/services/user-call.service';
 import { Router } from '@angular/router';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-new-story',
@@ -12,16 +13,19 @@ import { Router } from '@angular/router';
 })
 export class NewStoryComponent implements OnInit {
   storyForm!: FormGroup;
+  categories!: string[];
 
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiCallService,
     private userCallService: UserCallService,
+    private categoryService: CategoryService,
     private router: Router
   ) {}
 
   ngOnInit() {
     this.createForm();
+    this.loadCategories();
   }
 
   createForm() {
@@ -59,6 +63,13 @@ export class NewStoryComponent implements OnInit {
     }
   }
   
+  loadCategories() {
+    this.categoryService.getCategories().subscribe((categories: string[]) => {
+      // Assign the fetched categories to your form control or variable
+      this.categories = categories;
+      console.log(categories);
+    });
+  }
   
   
 
