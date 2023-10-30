@@ -22,7 +22,12 @@
       This tale needs a category.
     </div>
   </div>
-  <button type="submit" class="btn btn-success mt-2" placement="right" ngbTooltip="So the tale begins...">Start the Tale</button>
+  <button 
+    type="submit" 
+    class="btn btn-success mt-2" 
+    placement="right" 
+    ngbTooltip="So the tale begins..." 
+    [disabled]="!storyForm.valid">Start the Tale</button>
 </form>
 
 
