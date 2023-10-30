@@ -15,7 +15,9 @@
   </div>
   <div class="form-group">
     <label for="category">Category</label>
-    <input type="text" id="category" class="form-control" formControlName="category" required>
+    <select id="category" class="form-control" formControlName="category" required>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
     <div *ngIf="storyForm.get('category')?.hasError('required') && storyForm.get('category')?.touched" class="text-danger">
       This tale needs a category.
     </div>
