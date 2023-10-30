@@ -57,4 +57,9 @@ export class AuthService {
     return this.http.post(url, userData);
   }
 
+  checkUsernameAvailability(username: string): Observable<any> {
+    const url = `${this.api_url}accounts/api/check-username/${username}`;
+    return this.http.get(url);
+  }
+
 }

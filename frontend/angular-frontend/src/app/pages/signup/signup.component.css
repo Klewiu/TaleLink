@@ -1,0 +1,9 @@
+/* Add green color for available */
+.availability-message.available {
+    color: green;
+  }
+  
+  /* Add red color for taken */
+  .availability-message.taken {
+    color: red;
+  }
