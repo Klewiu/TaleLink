@@ -1,34 +1,41 @@
-<form [formGroup]="storyForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" id="title" class="form-control" formControlName="title" required>
-    <div *ngIf="storyForm.get('title')?.hasError('required') && storyForm.get('title')?.touched" class="text-danger">
-      This tale needs a title.
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h1>Story Submission Form</h1>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="storyForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" class="form-control" formControlName="title" required>
+              <div *ngIf="storyForm.get('title')?.hasError('required') && storyForm.get('title')?.touched" class="text-danger">
+                This tale needs a title.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="text">Text</label>
+              <textarea id="text" class="form-control" formControlName="text" required></textarea>
+              <div *ngIf="storyForm.get('text')?.hasError('required') && storyForm.get('text')?.touched" class="text-danger">
+                This tale needs some text.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="category">Category</label>
+              <select id="category" class="form-control form-select" formControlName="category" required>
+                <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+              </select>
+              <div *ngIf="storyForm.get('category')?.hasError('required') && storyForm.get('category')?.touched" class="text-danger">
+                This tale needs a category.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success mt-2 m-1" placement="right" ngbTooltip="So the tale begins..."
+              [disabled]="!storyForm.valid">Start the Tale</button>
+            <button type="secondary" routerLink="" class="btn btn-secondary mt-2 m-1">Back</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="form-group">
-    <label for="text">Text</label>
-    <textarea id="text" class="form-control" formControlName="text" required></textarea>
-    <div *ngIf="storyForm.get('text')?.hasError('required') && storyForm.get('text')?.touched" class="text-danger">
-      This tale needs some text.
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="category">Category</label>
-    <select id="category" class="form-control" formControlName="category" required>
-      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-    </select>
-    <div *ngIf="storyForm.get('category')?.hasError('required') && storyForm.get('category')?.touched" class="text-danger">
-      This tale needs a category.
-    </div>
-  </div>
-  <button 
-    type="submit" 
-    class="btn btn-success mt-2" 
-    placement="right" 
-    ngbTooltip="So the tale begins..." 
-    [disabled]="!storyForm.valid">Start the Tale</button>
-</form>
-
-
-  
+</div>

@@ -5,7 +5,7 @@
 <button *ngIf="user_login_text.user_name" class="btn btn-info m-1" routerLink="/profile">Profile</button>
 <p>{{user_login_text.login_text}}<span style="font-weight: bold;">{{user_login_text.user_name}}</span></p>
 
-<button class="btn btn-info mt-2" routerLink="new-tale">Start New Tale</button>
+<button *ngIf="user_login_text.user_name" class="btn btn-info mt-2" routerLink="new-tale">Start New Tale</button>
 <div class="row mt-5">
   <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let story of stories | slice:(page-1)*pageSize:page*pageSize">
     <div class="card mb-4">

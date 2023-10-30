@@ -40,6 +40,7 @@ export class NewStoryComponent implements OnInit {
   onSubmit() {
     this.markFormControlsAsTouched();
     if (this.storyForm.valid) {
+      console.log('Form submitted!');
       this.userCallService.getUserProfile().subscribe({
         next: (user) => {
           const newStory: Story = this.storyForm.value;
