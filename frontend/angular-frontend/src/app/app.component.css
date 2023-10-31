@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: 'Playpen Sans', cursive;
+}
+
+.book-frame {
+    background-color: #F2F2F2; /* Set your background color */
+    padding: 20px; /* Adjust the padding to your preference */
+  
+    /* Add a box shadow to create a frame effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+    /* You can also add other styles like a border, margin, or custom fonts */
+  }

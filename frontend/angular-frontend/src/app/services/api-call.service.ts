@@ -23,4 +23,9 @@ export class ApiCallService {
   deleteStory(id: number): Observable<Story> {
     return this.http.delete<Story>(`${this.apiUrl}story/${id}`);
   }
+
+  getStoryById(storyId: number): Observable<Story> {
+    return this.http.get<Story>(`${this.apiUrl}story/${storyId}`);
+  }
+  
 }
