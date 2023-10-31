@@ -28,18 +28,15 @@ export class SignupComponent {
     if (this.registrationForm.valid && this.isUsernameAvailable) {
       const formData = this.registrationForm.value;
 
-      // Call your service to send the registration data to the server
-      this.authService.registerUser(formData).subscribe(
-        (response) => {
+      this.authService.registerUser(formData).subscribe({
+        next: (response) => {
           console.log('Registration successful:', response);
-          // You can add a success message or redirection logic here
-          this.router.navigate(['/login'])
+          this.router.navigate(['/login']);
         },
-        (error) => {
+        error: (error) => {
           console.error('Registration failed:', error);
-          // Handle registration error, display an error message, etc.
-        }
-      );
+        },
+      });
     }
   }
 

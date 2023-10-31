@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   selector: 'app-story-list',
   templateUrl: './story-list.component.html',
   styleUrls: ['./story-list.component.css']
+  
 })
 
 export class StoryListComponent implements OnInit {
@@ -21,6 +22,8 @@ export class StoryListComponent implements OnInit {
     user_name:'',
     login_text:''
   }
+  dragonCollapsed = false;
+
   constructor(
     private apiService: ApiCallService, 
     private config: NgbPaginationConfig, 
@@ -39,6 +42,7 @@ export class StoryListComponent implements OnInit {
       this.user_login_text.login_text = 'You are logged in as : '
     }
   }
+
 
   loadStories() {    this.apiService.getStories().subscribe((stories: Story[]) => {
     this.stories = stories;
@@ -75,5 +79,16 @@ export class StoryListComponent implements OnInit {
       }
     );
   }
+
+  viewStory(storyId: number) {
+    this.router.navigate(['/tale', storyId]);
+  }
+
+  
+  toggleDragonCollapse() {
+    this.dragonCollapsed = !this.dragonCollapsed;
+  }
+
+
 }
 

@@ -12,6 +12,7 @@ import { DeleteModalComponent } from './utils/delete-modal/delete-modal.componen
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { StoryDetailComponent } from './pages/story-detail/story-detail.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SignupComponent } from './pages/signup/signup.component';
     DeleteModalComponent,
     LoginComponent,
     ProfileComponent,
-    SignupComponent
+    SignupComponent,
+    StoryDetailComponent
   ],
   imports: [
     BrowserModule,
