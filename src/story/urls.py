@@ -3,6 +3,7 @@ from story import views
 from django.urls import include, path
 from story.views import StoryCategoryViewSet
 
+
 router = routers.DefaultRouter()
 router.register(r'story', views.StoryViewSet)
 

@@ -27,5 +27,17 @@ export class ApiCallService {
   getStoryById(storyId: number): Observable<Story> {
     return this.http.get<Story>(`${this.apiUrl}story/${storyId}`);
   }
-  
+
+  updateStory(story: Story): Observable<Story> {
+    const updateUrl = `${this.apiUrl}story/${story.id}/`;
+
+    // patch object for update
+    const updatedStory = {
+      text: story.text + '\n\n' + story.newText, // Append new text to existing text
+      updatedBy: story.updatedBy, //user set in component
+      updated: new Date().toISOString()
+    };
+    return this.http.patch<Story>(updateUrl, updatedStory);
+  }
 }
+  

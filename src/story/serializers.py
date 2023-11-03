@@ -8,7 +8,12 @@ class StorySerializer(serializers.ModelSerializer):
         slug_field='username'
     )
 
+    updatedBy = serializers.SlugRelatedField(
+        queryset=get_user_model().objects.all(),
+        slug_field='username'
+    )    
+
     class Meta:
         model = Story
-        fields = ["id", "title", "timestamp", "isEdit", "text", "category", "updated", "user"]
+        fields = ["id", "title", "timestamp", "isEdit", "text", "category", "updated", "user", "updatedBy"]
 
