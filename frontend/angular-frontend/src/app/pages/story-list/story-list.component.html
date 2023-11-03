@@ -29,13 +29,8 @@
 </div>
 
 
-<button routerLink="/login" class="btn btn-success m-1">Login</button>
-<button *ngIf="!user_login_text.user_name" routerLink="/register" class="btn btn-primary m-1">SignUp</button>
-<button  *ngIf="user_login_text.user_name" (click)="logout()" class="btn btn-danger m-1">Logout</button>
-<button *ngIf="user_login_text.user_name" class="btn btn-info m-1" routerLink="/profile">Profile</button>
-<p>{{user_login_text.login_text}}<span style="font-weight: bold;">{{user_login_text.user_name}}</span></p>
 
-<button *ngIf="user_login_text.user_name" class="btn btn-info mt-2" routerLink="new-tale">Start New Tale</button>
+<button class="btn btn-info mt-2" routerLink="new-tale">Start New Tale</button>
 <div class="row mt-5">
   <div class="col-lg-4 col-md-6 col-sm-12 mb-2" *ngFor="let story of stories | slice:(page-1)*pageSize:page*pageSize">
     <div class="card mb-2 h-100">

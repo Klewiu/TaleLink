@@ -18,10 +18,7 @@ export class StoryListComponent implements OnInit {
   stories: Story[] = [];
   page = 1;
   pageSize = 6;
-  user_login_text = {
-    user_name:'',
-    login_text:''
-  }
+ 
   dragonCollapsed = false;
 
   constructor(
@@ -34,28 +31,13 @@ export class StoryListComponent implements OnInit {
 
   ngOnInit() {
     this.loadStories()
-
-    const userData = localStorage.getItem('currentUser');
-    if (userData) {
-      const user = JSON.parse(userData);
-      this.user_login_text.user_name = user.username;
-      this.user_login_text.login_text = 'You are logged in as : '
-    }
   }
-
 
   loadStories() {    this.apiService.getStories().subscribe((stories: Story[]) => {
     this.stories = stories;
     // console.log(typeof(stories['0'].user));
     
   });}
-
-  logout(){
-    this.authService.logout()
-    this.user_login_text.user_name = '';
-      this.user_login_text.login_text = 'You are logged out. Please log in...'
-  }
-
 
   deleteStory(storyId: number) {
     const modalRef = this.modalService.open(DeleteModalComponent);

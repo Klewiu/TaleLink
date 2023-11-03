@@ -13,6 +13,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { StoryDetailComponent } from './pages/story-detail/story-detail.component';
+import { HeaderComponent } from './layouts/header/header.component';
+import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { FooterComponent } from './layouts/footer/footer.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { StoryDetailComponent } from './pages/story-detail/story-detail.componen
     LoginComponent,
     ProfileComponent,
     SignupComponent,
-    StoryDetailComponent
+    StoryDetailComponent,
+    HeaderComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
