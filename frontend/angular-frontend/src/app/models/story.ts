@@ -7,4 +7,6 @@ export interface Story {
     category: string; 
     updated: string;
     user: string;
+    updatedBy: string;
+    newText: string; // Holds the update form edited text
   }
