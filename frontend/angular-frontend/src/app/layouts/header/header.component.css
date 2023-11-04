@@ -1,0 +1,13 @@
+header {
+    min-height: 130px;
+}
+
+.nav-background{
+    background-image: url("src/assets/images/Tlo1.png");
+    background-size: cover;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+    object-fit: cover;
+  }

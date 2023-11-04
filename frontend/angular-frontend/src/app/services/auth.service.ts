@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 
 const httpOptions = {
@@ -15,10 +16,16 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-
+  private loggedIn = new BehaviorSubject<boolean>(false);
   api_url: string = 'http://localhost:8000/'
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient) {
+     // Check if the user is already logged in (e.g., by checking local storage).
+     const userData = localStorage.getItem('currentUser');
+     if (userData) {
+       this.loggedIn.next(true);
+     }
+   }
 
   login(username:string, password:string) {
     return this.http.post<any>(this.api_url + `accounts/api/auth/`,
@@ -27,15 +34,20 @@ export class AuthService {
         if (user && user.token){
           localStorage.setItem("currentUser", JSON.stringify(user));
           console.log('Pisze z locacl Storage');
-          
+          this.loggedIn.next(true);
         }
         return user;
       })
     );
   }
 
+  isLoggedIn() {
+    return this.loggedIn.asObservable();
+  }
+
   logout() {
     localStorage.removeItem('currentUser');
+    this.loggedIn.next(false);
   }
 
   isAuthenticated(): boolean {

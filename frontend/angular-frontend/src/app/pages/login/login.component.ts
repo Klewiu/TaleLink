@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   loginForm!: FormGroup;
-  loggedIn:boolean=false
 
   constructor( private authService: AuthService, private router: Router){}
 
@@ -32,7 +31,6 @@ export class LoginComponent {
       data =>{
         console.log(data);
         this.router.navigate([''])
-        this.loggedIn=true
       }
     )
     

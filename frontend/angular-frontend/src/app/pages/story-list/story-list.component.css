@@ -1,5 +1,4 @@
 
-
 .hidden-dragon {
     visibility: hidden;
  
@@ -8,8 +7,7 @@
 
 .dragon-container {
     /* Other styles for the dragon container */
-    visibility: visible;
-    
+    visibility: hidden;
 }
 
 
