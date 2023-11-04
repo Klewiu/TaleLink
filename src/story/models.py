@@ -17,7 +17,7 @@ class Story(models.Model):
     category = models.CharField(max_length=30, choices=STORY_CATEGORY_CHOICES)
     updated = models.DateTimeField(auto_now = True, blank = True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='stories_created', blank=True, null=True)
-    updatedBy = models.ForeignKey(User, on_delete=models.CASCADE, related_name='stories_updated', blank=True, null=True)
+    updatedBy = models.CharField(max_length=255, null=True, blank=True, default=None)
 
     def __str__(self):
         return self.title
