@@ -7,11 +7,7 @@ class StorySerializer(serializers.ModelSerializer):
         queryset=get_user_model().objects.all(),
         slug_field='username'
     )
-
-    updatedBy = serializers.SlugRelatedField(
-        queryset=get_user_model().objects.all(),
-        slug_field='username'
-    )    
+  
 
     class Meta:
         model = Story
