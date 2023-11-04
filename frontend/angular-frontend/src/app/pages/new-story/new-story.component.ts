@@ -52,6 +52,7 @@ export class NewStoryComponent implements OnInit {
               this.router.navigate(['']);
             },
             error: (err) => {
+              console.log(newStory);
             },
             complete: () => {
               console.log(newStory);
