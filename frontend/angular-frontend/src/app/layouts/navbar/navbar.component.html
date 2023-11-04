@@ -1,1 +1,41 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(0, 0, 0);">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img class="logo-img" src="assets\images\Logo 2.jpg" alt="" />
+        </a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active text-white fs-5" aria-current="page" href="#">Start</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" href="#" [routerLink]="['']">O nas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" [routerLink]="['']">Technologia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" href="#" [routerLink]="['/contact']">Kontakt</a>
+                </li>
+            </ul>
+            <div class="ms-auto"> <!-- Push the buttons to the right -->
+                <button *ngIf="!loggedIn" routerLink="/login" type="button" class="btn btn-outline-light m-1">Login</button>
+                <button *ngIf="!loggedIn" routerLink="/register" type="button" class="btn btn-warning m-1">Rejestracja</button>
+                <button *ngIf="loggedIn" (click)="logout()" class="btn btn-danger m-1" type="button">Logout</button>
+                <button *ngIf="loggedIn" class="btn btn-secondary p-1 m-1" routerLink="/profile" type="button"><i style="color: #fcfcfc; font-size: large;"  class="bi bi-person-circle"></i>
+                    <span style="font-weight: regular"> {{ user_login_text.user_name |slice:0:6 }}</span></button>
+            </div>
+        </div>
+    </div>
+</nav>

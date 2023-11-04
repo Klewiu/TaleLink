@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
+.font-new {
+  font-family: 'Amatic SC', sans-serif;
+  text-shadow: 1px 1px 2px black;
+}
 
 .hidden-dragon {
     visibility: hidden;

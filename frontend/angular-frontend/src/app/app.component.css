@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
-    font-family: 'Playpen Sans', cursive;
+    font-family: 'Poppins', sans-serif;
 }
 
 .book-frame {
-    background-color: #F2F2F2; /* Set your background color */
-    padding: 20px; /* Adjust the padding to your preference */
-  
-    /* Add a box shadow to create a frame effect */
+    background-color: rgba(161, 211, 238, 0.807);
+    padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   
     /* You can also add other styles like a border, margin, or custom fonts */
