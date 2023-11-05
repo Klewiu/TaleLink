@@ -6,9 +6,9 @@ body {
 }
 
 .book-frame {
-    background-color: rgba(161, 211, 238, 0.807);
+    background-image: linear-gradient(to bottom right, #21173c, #b3f9f7);
     padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   
     /* You can also add other styles like a border, margin, or custom fonts */
   }
