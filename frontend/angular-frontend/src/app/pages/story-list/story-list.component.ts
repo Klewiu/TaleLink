@@ -19,7 +19,7 @@ export class StoryListComponent implements OnInit {
   page = 1;
   pageSize = 6;
  
-  dragonCollapsed = false;
+
 
   constructor(
     private apiService: ApiCallService, 
@@ -64,11 +64,6 @@ export class StoryListComponent implements OnInit {
 
   viewStory(storyId: number) {
     this.router.navigate(['/tale', storyId]);
-  }
-
-  
-  toggleDragonCollapse() {
-    this.dragonCollapsed = !this.dragonCollapsed;
   }
 
 

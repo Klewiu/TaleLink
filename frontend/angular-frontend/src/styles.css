@@ -1,3 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.btn{
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: #21173c;
+    border-color: #21173c;
+    color: #fff;
+  
+}
+
+.btn-primary:hover {
+    background-color: #BFCAB4 !important;
+    border-color: #BFCAB4!important;
+    color: #fff !important;
+}
+
+.book-frame {
+    background-image: linear-gradient(to bottom right, #21173c, #b3f9f7);
+    padding: 10px;
+  }
+
+
+

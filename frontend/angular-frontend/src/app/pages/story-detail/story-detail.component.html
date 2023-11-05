@@ -1,19 +1,26 @@
 <div *ngIf="!loading">
-  <h2>{{ story.title }}</h2>
-  <p>Category: {{ story.category }}</p>
-  <p>Created by: {{ story.user }}</p>
-  <p>Last updated by: {{ story.updatedBy }}</p>
-  <p>Last updated: {{ story.updated }}</p>
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+    <div class="card-body">
+      <h2 class="card-title">{{ story.title }}</h2>
+      <div>
+        <p class="card-text small m-0">Category: {{ story.category }}</p>
+        <p class="card-text small m-0">Created by: {{ story.user }}</p>
+        <p class="card-text small m-0">Last updated by: {{ story.updatedBy }}</p>
+        <p class="card-text small mt-0 mb-5">Last updated: {{ story.updated | date:'dd/MM/yy - HH:mm' }}</p>
+      </div>
+      
 
-  <!-- Display the current text -->
-  <p>{{ story.text }}</p>
+      <!-- Display the current text -->
+      <p class="card-text mb-5">{{ story.text }}</p>
 
-  <!-- Update form -->
-  <form (ngSubmit)="updateStory()">
-    <div class="mb-3">
-      <label for="newText" class="form-label">Continue the Tale</label>
-      <textarea [(ngModel)]="story.newText" name="newText" id="newText" class="form-control" rows="3"></textarea>
+      <!-- Update form -->
+      <form (ngSubmit)="updateStory()">
+        <div class="mb-3">
+          <label for="newText" class="form-label small">Continue the Tale...</label>
+          <textarea [(ngModel)]="story.newText" name="newText" id="newText" class="form-control" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add to the Tale</button>
+      </form>
     </div>
-    <button type="submit" class="btn btn-primary">Update</button>
-  </form>
+  </div>
 </div>
