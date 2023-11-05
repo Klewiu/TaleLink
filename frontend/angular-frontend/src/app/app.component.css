@@ -1,14 +1,1 @@
-@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&family=Roboto:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
-.book-frame {
-    background-image: linear-gradient(to bottom right, #21173c, #b3f9f7);
-    padding: 10px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-  
-    /* You can also add other styles like a border, margin, or custom fonts */
-  }
